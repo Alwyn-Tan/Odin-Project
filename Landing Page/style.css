@@ -1,0 +1,119 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+header{
+    background-color: #1F2937;
+    padding: 5px 100px;
+}
+
+.navigator{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    color:#F9FAF8;
+}
+
+.header-link-container{
+    display: flex;
+    align-items: center;
+}
+
+.header-links-ul{
+    list-style: none;
+    gap: 20px;
+    display: flex;
+
+}
+
+.header-links-ul a{
+    color: white;
+    text-decoration: none;
+}
+
+.header-links-ul a:hover {
+    color: #2980b9; 
+}
+
+.header-link-logo{
+    font-size: 24px;
+}
+
+.welcome {
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    padding: 50px 0px;
+    color:#F9FAF8;
+
+}
+
+.welcome .welcome-text h1{
+    font: 48px;
+    font-weight: 900;
+}
+
+.welcome .welcome-text .p{
+    font: 18px;
+    color: #E5E7EB;
+}
+
+.welcome button{
+    background-color: #3882F6;
+    width: 80px;
+    height: 30px;
+    color: white;
+    border: 0px;
+    border-radius: 5px;
+}
+
+
+.flower-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 10px;
+    padding: 10px 150px;
+}
+
+.flower{
+    border-radius: 10px;
+    width: 22%;
+}
+
+.flower p{
+    align-items: center;
+}
+
+.flower img{
+    max-width: 100%;
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    object-fit: cover
+}
+
+.quote-div{
+    background-color: #E5E7EB;
+    display: flex;
+    flex-direction: column;
+}
+
+.quote-div p{
+    display: flex;
+    align-items: center;
+    margin-top: 50px; 
+    margin-bottom: 10px;
+    padding: 30px;
+    font-size: 36px;
+    font-style: italic;
+    font-weight: lighter;
+    color: #1F2937;
+}
+
+.quote-div b{
+    text-align: right;
+    margin: 5px 150px;
+    padding: 20px;
+}
+
