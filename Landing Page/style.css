@@ -117,3 +117,33 @@ header{
     padding: 20px;
 }
 
+.sign-up{
+    display: flex;
+    justify-content: center;
+}
+
+.sign-up-div{
+    display: flex;
+    background-color: #3882F6;
+    margin: 50px 30px;
+    padding:10px 70px;
+    border-radius:5px;
+    color: white;
+}
+
+.sign-up-div button{
+    color: white;
+    background: #3882F6;
+    border-radius: 5px;
+    border-color: white;
+}
+
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1F2937;
+    color:white;
+    padding: 10px 10px;
+}
+
