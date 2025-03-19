@@ -1,51 +1,43 @@
-const readline = require('readline');
+const buttons = document.querySelectorAll("button")
+const userScoreDiv = document.querySelector(".user-score div")
+const computerScoreDiv = document.querySelector(".computer-score div")
+const display = document.querySelector(".display")
+let userScore = 0
+let computerScore = 0
 
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
-
-const choices = ['PAPER', 'SCISSOR', 'STONE', 'QUIT']
+const choices = ['PAPER', 'SCISSORS', 'STONE']
 
 function getComputerChoice() {
     return choices[Math.floor(Math.random() * 3)]
 }
 
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        const userChoice = button.textContent
+        const computerChoice = getComputerChoice()
+        const result = judge(computerChoice, userChoice)
+        userScoreDiv.textContent = userScore
+        computerScoreDiv.textContent = computerScore
+        display.textContent = `You chose ${userChoice}, your opponent chose ${computerChoice}, ${result}!`
+    })
+})
+
 function judge(computerChoice, userChoice) {
     if (computerChoice === userChoice) {
         console.log('Tie');
-        return;
+        return 'try again';
     }
     if ((computerChoice === 'STONE' && userChoice === 'PAPER') ||
-        (computerChoice === 'PAPER' && userChoice === 'SCISSOR') ||
-        (computerChoice === 'SCISSOR' && userChoice === 'STONE')
+        (computerChoice === 'PAPER' && userChoice === 'SCISSORS') ||
+        (computerChoice === 'SCISSORS' && userChoice === 'STONE')
     ) {
         console.log('You win!');
+        userScore++;
+        return 'you win'
     } else {
         console.log('You lose!');
+        computerScore++;
+        return 'you lose'
     }
+
 }
-
-function playGame() {
-    rl.question("This is Paper-Scissor-Stone game. Please enter 'PAPER', 'SCISSOR', 'STONE', or 'QUIT' to exit: ", (userInput) => {
-        const userChoice = userInput.toUpperCase();
-
-        if (userChoice === 'QUIT') {
-            console.log('Goodbye!');
-            rl.close();
-            return;
-        }
-
-        if (!choices.includes(userChoice)) {
-            console.log('Invalid input. Please try again!')
-            playGame();
-            return;
-        }
-        const computerChoice = getComputerChoice();
-        console.log(`You chose ${userChoice} and the computer chose ${computerChoice}.`);
-        judge(computerChoice, userChoice);
-        playGame();
-    });
-}
-
-playGame();

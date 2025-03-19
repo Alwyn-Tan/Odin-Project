@@ -1,0 +1,22 @@
+.btns {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 50px;
+}
+
+.btns button{
+    width: 100px;
+    height: 30px;
+}
+
+.display{
+    text-align: center;
+    margin: 16px 0;
+}
+
+
+
+.score{
+    display: flex;
+    justify-content: space-around;
+}
