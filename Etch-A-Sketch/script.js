@@ -32,12 +32,16 @@ let flexGrids = []
 var gridContainerStyle = window.getComputedStyle(gridContainer)
 var gridContainerWidth = parseFloat(gridContainerStyle.width)
 loadGrid()
+window.onload = () => {
+    activateBtn(DEFAULT_MODE)
+}
 
 function setCurrentColor(_color) {
     currentColor = _color
 }
 
 function setCurrentMode(_mode) {
+    activateBtn(_mode)
     currentMode = _mode
 }
 
@@ -80,6 +84,26 @@ function changeColor(e) {
         e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
     } else if (currentMode === 'eraser') {
         e.target.style.backgroundColor = '#fefefe'
+    }
+}
+
+function activateBtn(_mode) {
+    if (currentMode === 'color') {
+        colorModeBtn.classList.remove('active')
+    }
+    else if (currentMode === 'rainbow') {
+        rainbowModeBtn.classList.remove('active')
+    } else if (currentMode === 'eraser') {
+        eraserBtn.classList.remove('active')
+    }
+
+    if (_mode === 'color') {
+        colorModeBtn.classList.add('active')
+    }
+    else if (_mode === 'rainbow') {
+        rainbowModeBtn.classList.add('active')
+    } else if (_mode === 'eraser') {
+        eraserBtn.classList.add('active')
     }
 }
 

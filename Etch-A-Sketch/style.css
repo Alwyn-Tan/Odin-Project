@@ -31,6 +31,15 @@ button, input{
     width: 100%;
 }
 
+button.active {
+    background-color: black;
+    color: white;
+  }
+
+.color-selector:hover, button:hover{
+    transform: scale(1.05);
+}
+
 .menu button{
     padding: 10px 20px;
     border: 1px solid ;
