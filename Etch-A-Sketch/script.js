@@ -8,9 +8,9 @@ const sizeValue = document.querySelector(".size-value")
 const sizeSlider = document.querySelector(".size-slider")
 const gridContainer = document.querySelector(".grid-container")
 
-DEFAULT_COLOR = '#333333'
-DEFAULT_MODE = 'color'
-DEFAULT_SIZE = 16
+const DEFAULT_COLOR = '#333333'
+const DEFAULT_MODE = 'color'
+const DEFAULT_SIZE = 16
 
 let currentColor = DEFAULT_COLOR
 let currentMode = DEFAULT_MODE
@@ -29,8 +29,6 @@ body.onmousedown = () => (mouseDown = true)
 body.onmouseup = () => (mouseDown = false)
 
 let flexGrids = []
-var gridContainerStyle = window.getComputedStyle(gridContainer)
-var gridContainerWidth = parseFloat(gridContainerStyle.width)
 loadGrid()
 window.onload = () => {
     activateBtn(DEFAULT_MODE)
@@ -62,6 +60,12 @@ function clearGrid() {
 }
 
 function loadGrid() {
+    gridContainer.innerHTML = ''
+    flexGrids = []
+
+    const gridContainerStyle = window.getComputedStyle(gridContainer)
+    const gridContainerWidth = parseFloat(gridContainerStyle.width)
+
     for (let i = 0; i < currentSize * currentSize; i++) {
         const flexGrid = document.createElement('div')
         flexGrid.style.width = gridContainerWidth / currentSize + "px"
@@ -106,8 +110,3 @@ function activateBtn(_mode) {
         eraserBtn.classList.add('active')
     }
 }
-
-
-
-
-
