@@ -1,0 +1,103 @@
+@import "normalize.css";
+
+:root {
+    --invalid: #fc2424;
+    --valid: #03c061;
+    --bold-accent: #0020ad;
+    --light-accent: #a1a1a1;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('images/background.svg') no-repeat center fixed;
+    background-size: cover;
+    font-family: "Manrope", sans-serif;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    gap: 2rem;
+}
+
+a {
+    font-weight: bold;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: transform 250ms linear;
+    display: inline-block;
+}
+
+a:hover {
+    transform: scale(1.01) translateX(0.5px);
+}
+
+h1 {
+    font-size: 1.5rem;
+    color: #2980b9;
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.img-container img {
+    width: 100%;
+    max-height: 45vh;
+    min-height: 350px;
+    max-width: 510px;
+    border-radius: 10px;
+}
+
+.form-container {
+    position: relative;
+    max-width: 340px;
+}
+
+.form-input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+}
+
+input {
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid var(--light-accent);
+    padding: max(0.5rem, 1.35vh) 0.25rem;
+    width: 100%;
+    margin: 0.25rem 0.4rem;
+    transition: border-color 200ms ease-in-out, border-bottom-width 200ms ease-in-out;
+}
+
+.invalid {
+    border-color: var(--invalid);
+    border-bottom-width: 2px;
+}
+
+button {
+    padding: 0.75rem 1.75rem;
+    display: block;
+    position: relative;
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    background-color: var(--bold-accent);
+    border: none;
+    border-radius: 6px;
+    margin: 1.25rem 0 1rem;
+    transition: background-color 500ms ease;
+    cursor: pointer;
+    user-select: none;
+}
