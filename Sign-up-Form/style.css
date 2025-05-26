@@ -1,10 +1,12 @@
 @import "normalize.css";
 
 :root {
+    --mask: none;
     --invalid: #fc2424;
     --valid: #03c061;
     --bold-accent: #0020ad;
     --light-accent: #a1a1a1;
+    --main-border: #e5f4ff
 }
 
 body {
@@ -21,10 +23,17 @@ body {
 
 main {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     width: 100%;
     max-width: 1200px;
+    height: fit-content;
+    border: 5px solid var(--main-border);
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin: 0 10rem;
+    padding: 2.5rem 0.5rem;
     gap: 2rem;
 }
 
