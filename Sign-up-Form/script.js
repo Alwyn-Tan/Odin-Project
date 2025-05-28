@@ -22,3 +22,61 @@ window.addEventListener("resize", () => {
 window.addEventListener("load", () => {
     setBlurMask();
 })
+
+document.querySelectorAll(".form-input").forEach((item) => {
+    item.addEventListener("focusin", (event) => {
+        const target = event.currentTarget;
+        target.classList.add("active")
+        target.children[1].classList.add("active");
+    })
+
+    item.addEventListener("focusout", (event) => {
+        const target = event.currentTarget;
+        target.classList.remove("active")
+        target.children[1].classList.remove("active");
+
+        const valid = validateInput(target.children[1]);
+
+    })
+})
+
+document.querySelectorAll("input").forEach((item) => {
+    item.addEventListener("input", (event) => {
+        if (event.target.classList.contains("invalid")) {
+            validateInput(item)
+        }
+    })
+})
+
+function validateInput(input) {
+    const {id, value} = input;
+    input.classList.remove("invalid");
+    let valid = false;
+    switch (id) {
+        case "name":
+            valid = /^\S.*/.test(value);
+            break;
+        case "email":
+            valid = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(value);
+            break;
+        case "password":
+            valid = testPasswordStrength(value) !== "weak";
+            break;
+        case "password_confirmation":
+            valid = value && value === document.querySelector("#password").value;
+            break;
+    }
+    input.classList.add(valid ? "valid" : "invalid");
+    return valid;
+}
+
+function testPasswordStrength(password) {
+    const passwordTest = passwordStrengthTest.test(password);
+    if (passwordTest.strong) {
+        return "strong";
+    } else if (password.length > 7 && passwordTest.passedTests.length > 3) {
+        return "passed";
+    } else {
+        return "weak";
+    }
+}

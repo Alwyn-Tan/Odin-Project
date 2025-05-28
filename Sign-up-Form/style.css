@@ -113,8 +113,22 @@ input {
     transition: border-color 200ms ease-in-out, border-bottom-width 200ms ease-in-out;
 }
 
+input:focus {
+    outline: none;
+}
+
+.active {
+    transform: scale(1.05);
+    border-color: var(--bold-accent) border-bottom-width 2px
+}
+
 .invalid {
     border-color: var(--invalid);
+    border-bottom-width: 2px;
+}
+
+.valid {
+    border-color: var(--valid);
     border-bottom-width: 2px;
 }
 
