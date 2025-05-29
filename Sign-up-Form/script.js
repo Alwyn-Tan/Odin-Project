@@ -28,6 +28,10 @@ document.querySelectorAll(".form-input").forEach((item) => {
         const target = event.currentTarget;
         target.classList.add("active")
         target.children[1].classList.add("active");
+
+        if (target.children[1].id === "password") {
+            document.querySelector(".indicator").classList.remove("hide")
+        }
     })
 
     item.addEventListener("focusout", (event) => {
@@ -42,7 +46,7 @@ document.querySelectorAll(".form-input").forEach((item) => {
 
 document.querySelectorAll("input").forEach((item) => {
     item.addEventListener("input", (event) => {
-        if (event.target.classList.contains("invalid")) {
+        if (event.target.classList.contains("invalid") || event.target.classList.contains("valid")) {
             validateInput(item)
         }
     })
@@ -50,7 +54,7 @@ document.querySelectorAll("input").forEach((item) => {
 
 function validateInput(input) {
     const {id, value} = input;
-    input.classList.remove("invalid");
+    input.classList.remove("invalid", "valid");
     let valid = false;
     switch (id) {
         case "name":
