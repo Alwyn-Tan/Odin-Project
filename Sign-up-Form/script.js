@@ -52,6 +52,23 @@ document.querySelectorAll("input").forEach((item) => {
     })
 })
 
+document.querySelector("#password").addEventListener("input", (event) => {
+    const strength = testPasswordStrength(event.target.value);
+    switch (strength) {
+        case "strong":
+            document.querySelector(".strong").classList.remove("transparent");
+            document.querySelector(".medium").classList.remove("transparent");
+            break;
+        case "medium":
+            document.querySelector(".strong").classList.add("transparent");
+            document.querySelector(".medium").classList.remove("transparent");
+            break;
+        case "weak":
+            document.querySelector(".strong").classList.add("transparent");
+            document.querySelector(".medium").classList.add("transparent");
+    }
+})
+
 function validateInput(input) {
     const {id, value} = input;
     input.classList.remove("invalid", "valid");
@@ -79,7 +96,7 @@ function testPasswordStrength(password) {
     if (passwordTest.strong) {
         return "strong";
     } else if (password.length > 7 && passwordTest.passedTests.length > 3) {
-        return "passed";
+        return "medium";
     } else {
         return "weak";
     }
